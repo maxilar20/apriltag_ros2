@@ -21,39 +21,144 @@
     #   ...
     #
     standalone_tags:
-      tag_names: ["tag_3"]
+      tag_names: [tag_0, tag_1, tag_2, tag_3, tag_24, tag_25, tag_26, tag_27, tag_48, tag_49, tag_50, tag_51, tag_72, tag_73, tag_74, tag_75, tag_96, tag_97, tag_98, tag_99]
+      tag_0:
+        id: 0
+        size: 0.033
+      tag_1:
+        id: 1
+        size: 0.033
+      tag_2:
+        id: 2
+        size: 0.033
       tag_3:
         id: 3
-        size: 1.0
-
-    # ## Tag bundle definitions
-    # ### Remarks
-    #
-    # - x, y, z have default values of 0 thus they are optional
-    # - qw has default value of 1 and qx, qy, qz have default values of 0 thus they are optional
-    #
-    # ### Syntax
-    #
+        size: 0.033
+      tag_24:
+        id: 24
+        size: 0.033
+      tag_25:
+        id: 25
+        size: 0.033
+      tag_26:
+        id: 26
+        size: 0.033
+      tag_27:
+        id: 27
+        size: 0.033
+      tag_48:
+        id: 48
+        size: 0.033
+      tag_49:
+        id: 49
+        size: 0.033
+      tag_50:
+        id: 50
+        size: 0.033
+      tag_51:
+        id: 51
+        size: 0.033
+      tag_72:
+        id: 72
+        size: 0.033
+      tag_73:
+        id: 73
+        size: 0.033
+      tag_74:
+        id: 74
+        size: 0.033
+      tag_75:
+        id: 75
+        size: 0.033
+      tag_96:
+        id: 96
+        size: 0.033
+      tag_97:
+        id: 97
+        size: 0.033
+      tag_98:
+        id: 98
+        size: 0.033
+      tag_99:
+        id: 99
+        size: 0.033
+    # # ## Tag bundle definitions
+    # # ### Remarks
+    # #
+    # # - x, y, z have default values of 0 thus they are optional
+    # # - qw has default value of 1 and qx, qy, qz have default values of 0 thus they are optional
+    # #
+    # # ### Syntax
+    # #
+    # # tag_bundles:
+    # #   bundle_names: ["CUSTOM_BUNDLE_NAME", ...]
+    # #   CUSTOM_BUNDLE_NAME:
+    # #     layout:
+    # #       ids: [ID, ...]
+    # #       ID:
+    # #         size: SIZE
+    # #         x: X_POS
+    # #         y: Y_POS
+    # #         z: Z_POS
+    # #         qw: QUAT_W_VAL
+    # #         qx: QUAT_X_VAL
+    # #         qy: QUAT_Y_VAL
+    # #         qz: QUAT_Z_VAL
+    # #       ...
+    # #   ...
     # tag_bundles:
-    #   bundle_names: ["CUSTOM_BUNDLE_NAME", ...]
-    #   CUSTOM_BUNDLE_NAME:
+    #   bundle_names: ["bundle_0"]
+    #   bundle_0:
     #     layout:
-    #       ids: [ID, ...]
-    #       ID:
-    #         size: SIZE
-    #         x: X_POS
-    #         y: Y_POS
-    #         z: Z_POS
-    #         qw: QUAT_W_VAL
-    #         qx: QUAT_X_VAL
-    #         qy: QUAT_Y_VAL
-    #         qz: QUAT_Z_VAL
-    #       ...
-    #   ...
-    tag_bundles:
-      bundle_names: ["bundle_0"]
-      bundle_0:
-        layout:
-          ids: [3]
-          3:
-            size: 1.0
+    #       ids: [1]
+    #       1:
+    #         size: 0.033
+    # tag_bundles:
+    #   bundle_names: ['bundle_0', 'bundle_1', 'bundle_2']
+    #   bundle_0:
+    #     layout:
+    #       ids: [0, 1, 2, 3, 24, 25]
+    #       0:
+    #         size: 0.033
+    #       1:
+    #         size: 0.033
+    #       2:
+    #         size: 0.033
+    #       3:
+    #         size: 0.033
+    #       24:
+    #         size: 0.033
+    #       25:
+    #         size: 0.033
+
+    #   bundle_1:
+    #     layout:
+    #       ids: [26, 27, 48, 49, 50, 51]
+    #       26:
+    #         size: 0.033
+    #       27:
+    #         size: 0.033
+    #       48:
+    #         size: 0.033
+    #       49:
+    #         size: 0.033
+    #       50:
+    #         size: 0.033
+    #       51:
+    #         size: 0.033
+
+    #   bundle_2:
+    #     layout:
+    #       ids: [72, 73, 74, 75, 96, 97]
+    #       72:
+    #         size: 0.033
+    #       73:
+    #         size: 0.033
+    #       74:
+    #         size: 0.033
+    #       75:
+    #         size: 0.033
+    #       96:
+    #         size: 0.033
+    #       97:
+    #         size: 0.033

@@ -5,8 +5,8 @@
 
   <node pkg="apriltag_ros" exec="apriltag_ros_continuous_detector_node" name="apriltag_ros_continuous_detector_node" output="screen" launch-prefix="$(var launch_prefix)" >
     <!-- Remap topics from those used in code to those on the ROS network -->
-    <remap from="~/image_rect" to="$(var camera_name)/$(var image_topic)" />
-    <remap from="~/camera_info" to="$(var camera_name)/camera_info" />
+    <remap from="~/image_rect" to="/zed2/zed_node/left/image_rect_color" />
+    <remap from="~/camera_info" to="/zed2/zed_node/left/camera_info" />
 
     <!-- Set parameters -->
     <param from="$(find-pkg-share apriltag_ros)/config/settings.param.yaml" />

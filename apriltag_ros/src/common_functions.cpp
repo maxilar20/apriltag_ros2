@@ -325,14 +325,14 @@ apriltag_ros::msg::AprilTagDetectionArray TagDetector::detectTags(
   if (publish_tf_) {
     for (unsigned int i = 0; i < tag_detection_array.detections.size(); i++) {
       geometry_msgs::msg::TransformStamped transform_stamped;
-      transform_stamped.header.frame_id = image->header.frame_id;
+      transform_stamped.header.frame_id = "zed_camera";
       transform_stamped.child_frame_id = detection_names[i];
       transform_stamped.header.stamp = tag_detection_array.detections[i].pose.header.stamp;
 
       const auto & pose = tag_detection_array.detections[i].pose.pose.pose;
-      transform_stamped.transform.translation.x = pose.position.x;
-      transform_stamped.transform.translation.y = pose.position.y;
-      transform_stamped.transform.translation.z = pose.position.z;
+      transform_stamped.transform.translation.x = pose.position.z;
+      transform_stamped.transform.translation.y = -pose.position.x;
+      transform_stamped.transform.translation.z = -pose.position.y;
 
       tf2::Quaternion tf_quaternion;
       tf2::fromMsg(pose.orientation, tf_quaternion);
