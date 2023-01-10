@@ -46,12 +46,14 @@ ContinuousDetector::ContinuousDetector(const rclcpp::NodeOptions & node_options)
     "publish_tag_detections_image", false);
 
   const auto transport_hint = declare_parameter("transport_hint", "raw");
+  auto custom_qos = rclcpp::QoS(rclcpp::KeepLast(1));
+  custom_qos.best_effort();
 
   camera_image_subscriber_ = image_transport::create_camera_subscription(
     this, "~/image_rect",
     std::bind(
       &ContinuousDetector::imageCallback,
-      this, std::placeholders::_1, std::placeholders::_2), transport_hint);
+      this, std::placeholders::_1, std::placeholders::_2), transport_hint, custom_qos.get_rmw_qos_profile());
   tag_detections_publisher_ = create_publisher<apriltag_ros::msg::AprilTagDetectionArray>(
     "~/tag_detections", 1);
   if (draw_tag_detections_image_) {
