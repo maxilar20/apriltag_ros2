@@ -210,7 +210,8 @@ public:
   // Detect tags in an image
   apriltag_ros::msg::AprilTagDetectionArray detectTags(
     const cv_bridge::CvImagePtr & image,
-    const sensor_msgs::msg::CameraInfo::ConstSharedPtr & camera_info);
+    const sensor_msgs::msg::CameraInfo::ConstSharedPtr & camera_info,
+    const std::string frame_id);
 
   // Get the pose of the tag in the camera frame
   // Returns homogeneous transformation matrix [R,t;[0 0 0 1]] which

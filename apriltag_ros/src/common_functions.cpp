@@ -146,7 +146,8 @@ TagDetector::~TagDetector()
 
 apriltag_ros::msg::AprilTagDetectionArray TagDetector::detectTags(
   const cv_bridge::CvImagePtr & image,
-  const sensor_msgs::msg::CameraInfo::ConstSharedPtr & camera_info)
+  const sensor_msgs::msg::CameraInfo::ConstSharedPtr & camera_info,
+  const std::string frame_id)
 {
   // Convert image to AprilTag code's format
   cv::Mat gray_image;
@@ -325,7 +326,7 @@ apriltag_ros::msg::AprilTagDetectionArray TagDetector::detectTags(
   if (publish_tf_) {
     for (unsigned int i = 0; i < tag_detection_array.detections.size(); i++) {
       geometry_msgs::msg::TransformStamped transform_stamped;
-      transform_stamped.header.frame_id = "zed_camera";
+      transform_stamped.header.frame_id = frame_id;
       transform_stamped.child_frame_id = detection_names[i];
       transform_stamped.header.stamp = tag_detection_array.detections[i].pose.header.stamp;
 

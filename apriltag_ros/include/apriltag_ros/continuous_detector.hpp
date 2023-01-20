@@ -69,7 +69,7 @@ private:
   std::unique_ptr<TagDetector> tag_detector_;
   bool draw_tag_detections_image_;
   cv_bridge::CvImagePtr cv_image_;
-
+  std::string frame_id;
   image_transport::CameraSubscriber camera_image_subscriber_;
   image_transport::Publisher tag_detections_image_publisher_;
   rclcpp::Publisher<apriltag_ros::msg::AprilTagDetectionArray>::SharedPtr

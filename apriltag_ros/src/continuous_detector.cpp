@@ -46,14 +46,16 @@ ContinuousDetector::ContinuousDetector(const rclcpp::NodeOptions & node_options)
     "publish_tag_detections_image", false);
 
   const auto transport_hint = declare_parameter("transport_hint", "raw");
+  frame_id = declare_parameter("frame_id", "zed_camera");
   auto custom_qos = rclcpp::QoS(rclcpp::KeepLast(1));
   custom_qos.best_effort();
+  custom_qos.durability_volatile();
 
   camera_image_subscriber_ = image_transport::create_camera_subscription(
     this, "~/image_rect",
     std::bind(
       &ContinuousDetector::imageCallback,
-      this, std::placeholders::_1, std::placeholders::_2), transport_hint, custom_qos.get_rmw_qos_profile());
+      this, std::placeholders::_1, std::placeholders::_2), transport_hint);
   tag_detections_publisher_ = create_publisher<apriltag_ros::msg::AprilTagDetectionArray>(
     "~/tag_detections", 1);
   if (draw_tag_detections_image_) {
@@ -89,7 +91,7 @@ void ContinuousDetector::imageCallback(
 
   // Publish detected tags in the image by AprilTag 2
   tag_detections_publisher_->publish(
-    tag_detector_->detectTags(cv_image_, camera_info));
+    tag_detector_->detectTags(cv_image_, camera_info, frame_id));
 
   // Publish the camera image overlaid by outlines of the detected tags and
   // their payload values

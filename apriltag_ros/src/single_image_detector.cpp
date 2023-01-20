@@ -88,7 +88,7 @@ bool SingleImageDetector::analyzeImage(
     std_msgs::msg::Header{}, "bgr8", image);
   loaded_image->header.frame_id = "camera";
   response->tag_detections = tag_detector_->detectTags(
-    loaded_image, std::make_shared<sensor_msgs::msg::CameraInfo>(request->camera_info));
+    loaded_image, std::make_shared<sensor_msgs::msg::CameraInfo>(request->camera_info), loaded_image->header.frame_id);
 
   // Publish detected tags (AprilTagDetectionArray, basically an array of
   // geometry_msgs/PoseWithCovarianceStamped)
