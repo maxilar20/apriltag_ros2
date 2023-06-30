@@ -21,10 +21,32 @@
     #   ...
     #
     standalone_tags:
-      tag_names: [tag_0, tag_1, tag_2, tag_3, tag_24, tag_25, tag_26, tag_27, tag_48, tag_49, tag_50, tag_51, tag_72, tag_73, tag_74, tag_75, tag_96, tag_97, tag_98, tag_99]
+      tag_names:
+        [
+          tag_0,
+          tag_1,
+          tag_2,
+          tag_3,
+          tag_24,
+          tag_25,
+          tag_26,
+          tag_27,
+          tag_48,
+          tag_49,
+          tag_50,
+          tag_51,
+          tag_72,
+          tag_73,
+          tag_74,
+          tag_75,
+          tag_96,
+          tag_97,
+          tag_98,
+          tag_99,
+        ]
       tag_0:
         id: 0
-        size: 0.033
+        size: 0.075
       tag_1:
         id: 1
         size: 0.033
@@ -33,7 +55,7 @@
         size: 0.033
       tag_3:
         id: 3
-        size: 0.033
+        size: 0.075
       tag_24:
         id: 24
         size: 0.033
@@ -114,7 +136,50 @@
     #       1:
     #         size: 0.033
     tag_bundles:
-      bundle_names: ['bundle_0', 'bundle_1', 'bundle_2']
+      bundle_names: ["table_0", "bundle_0", "bundle_1", "bundle_2"]
+      table_0:
+        layout:
+          ids: [4, 5, 6, 7]
+          4:
+            size: 0.075
+            x: 0.0
+            y: 0.0
+            z: 0.0
+            qw: 0.0
+            qx: 0.0
+            qy: 0.0
+            qz: 0.0
+
+          5:
+            size: 0.075
+            x: 0.095
+            y: 0.0
+            z: 0.0
+            qw: 0.0
+            qx: 0.0
+            qy: 0.0
+            qz: 0.0
+
+          6:
+            size: 0.075
+            x: 0.0
+            y: -0.12
+            z: 0.0
+            qw: 0.0
+            qx: 0.0
+            qy: 0.0
+            qz: 0.0
+
+          7:
+            size: 0.075
+            x: 0.095
+            y: -0.12
+            z: 0.0
+            qw: 0.0
+            qx: 0.0
+            qy: 0.0
+            qz: 0.0
+
       bundle_0:
         layout:
           ids: [0, 1, 2, 3, 24, 25]
@@ -232,7 +297,7 @@
             qx: 0.707
             qy: 0.0
             qz: 0.0
-            
+
       bundle_2:
         layout:
           ids: [72, 73, 74, 75, 96, 97]

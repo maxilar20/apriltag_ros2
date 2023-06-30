@@ -50,32 +50,32 @@
 
 #include <memory>
 
-#include "apriltag_ros/common_functions.hpp"
-#include "apriltag_ros/srv/analyze_single_image.hpp"
+#include "apriltag_ros2/common_functions.hpp"
+#include "apriltag_ros2/srv/analyze_single_image.hpp"
 
-namespace apriltag_ros
+namespace apriltag_ros2
 {
 
-class SingleImageDetector : public rclcpp::Node
-{
-private:
-  std::unique_ptr<TagDetector> tag_detector_;
-  rclcpp::Service<apriltag_ros::srv::AnalyzeSingleImage>::SharedPtr
-    single_image_analysis_service_;
+  class SingleImageDetector : public rclcpp::Node
+  {
+  private:
+    std::unique_ptr<TagDetector> tag_detector_;
+    rclcpp::Service<apriltag_ros2::srv::AnalyzeSingleImage>::SharedPtr
+        single_image_analysis_service_;
 
-  rclcpp::Publisher<apriltag_ros::msg::AprilTagDetectionArray>::SharedPtr
-    tag_detections_publisher_;
+    rclcpp::Publisher<apriltag_ros2::msg::AprilTagDetectionArray>::SharedPtr
+        tag_detections_publisher_;
 
-public:
-  explicit SingleImageDetector(const rclcpp::NodeOptions & node_options);
+  public:
+    explicit SingleImageDetector(const rclcpp::NodeOptions &node_options);
 
-  // The function which provides the single image analysis service
-  bool analyzeImage(
-    const std::shared_ptr<rmw_request_id_t> request_header,
-    apriltag_ros::srv::AnalyzeSingleImage::Request::SharedPtr request,
-    apriltag_ros::srv::AnalyzeSingleImage::Response::SharedPtr response);
-};
+    // The function which provides the single image analysis service
+    bool analyzeImage(
+        const std::shared_ptr<rmw_request_id_t> request_header,
+        apriltag_ros2::srv::AnalyzeSingleImage::Request::SharedPtr request,
+        apriltag_ros2::srv::AnalyzeSingleImage::Response::SharedPtr response);
+  };
 
-}  // namespace apriltag_ros
+} // namespace apriltag_ros2
 
-#endif  // APRILTAG_ROS__SINGLE_IMAGE_DETECTOR_HPP_
+#endif // APRILTAG_ROS__SINGLE_IMAGE_DETECTOR_HPP_

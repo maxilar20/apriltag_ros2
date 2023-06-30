@@ -13,6 +13,6 @@
     <param from="$(find-pkg-share apriltag_ros)/config/tags.param.yaml" />
 
     <param name="publish_tag_detections_image" value="true" />
-    <param name="frame_id" value="zed_camera" />
+    <param name="frame_id" value="zed_base_link" />
   </node>
 </launch>

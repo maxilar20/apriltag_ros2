@@ -49,33 +49,34 @@
 
 #include <memory>
 
-#include "apriltag_ros/msg/april_tag_detection_array.hpp"
-#include "apriltag_ros/common_functions.hpp"
+#include "apriltag_ros2/msg/april_tag_detection_array.hpp"
+#include "apriltag_ros2/common_functions.hpp"
 #include "rclcpp/rclcpp.hpp"
 
-namespace apriltag_ros
+namespace apriltag_ros2
 {
 
-class ContinuousDetector : public rclcpp::Node
-{
-public:
-  explicit ContinuousDetector(const rclcpp::NodeOptions & node_options);
+  class ContinuousDetector : public rclcpp::Node
+  {
+  public:
+    explicit ContinuousDetector(const rclcpp::NodeOptions &node_options);
 
-  void imageCallback(
-    const sensor_msgs::msg::Image::ConstSharedPtr & image_rect,
-    const sensor_msgs::msg::CameraInfo::ConstSharedPtr & camera_info);
+    void imageCallback(
+        const sensor_msgs::msg::Image::ConstSharedPtr &image_rect,
+        const sensor_msgs::msg::CameraInfo::ConstSharedPtr &camera_info);
 
-private:
-  std::unique_ptr<TagDetector> tag_detector_;
-  bool draw_tag_detections_image_;
-  cv_bridge::CvImagePtr cv_image_;
-  std::string frame_id;
-  image_transport::CameraSubscriber camera_image_subscriber_;
-  image_transport::Publisher tag_detections_image_publisher_;
-  rclcpp::Publisher<apriltag_ros::msg::AprilTagDetectionArray>::SharedPtr
-    tag_detections_publisher_;
-};
+  private:
+    std::unique_ptr<TagDetector> tag_detector_;
+    bool draw_tag_detections_image_;
+    cv_bridge::CvImagePtr cv_image_;
+    std::string camera_frame_id;
+    std::string camera_base_frame_id;
+    image_transport::CameraSubscriber camera_image_subscriber_;
+    image_transport::Publisher tag_detections_image_publisher_;
+    rclcpp::Publisher<apriltag_ros2::msg::AprilTagDetectionArray>::SharedPtr
+        tag_detections_publisher_;
+  };
 
-}  // namespace apriltag_ros
+} // namespace apriltag_ros2
 
-#endif  // APRILTAG_ROS__CONTINUOUS_DETECTOR_HPP_
+#endif // APRILTAG_ROS__CONTINUOUS_DETECTOR_HPP_

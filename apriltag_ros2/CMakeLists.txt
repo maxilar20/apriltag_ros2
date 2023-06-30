@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(apriltag_ros)
+project(apriltag_ros2)
 
 ### Compile options
 if(NOT CMAKE_CXX_STANDARD)
@@ -91,7 +91,7 @@ target_link_libraries(${PROJECT_NAME}_continuous_detector
   ${PROJECT_NAME}_common
 )
 rclcpp_components_register_node(${PROJECT_NAME}_continuous_detector
-  PLUGIN "apriltag_ros::ContinuousDetector"
+  PLUGIN "apriltag_ros2::ContinuousDetector"
   EXECUTABLE ${PROJECT_NAME}_continuous_detector_node
 )
 
@@ -102,7 +102,7 @@ target_link_libraries(${PROJECT_NAME}_single_image_detector
   ${PROJECT_NAME}_common
 )
 rclcpp_components_register_node(${PROJECT_NAME}_single_image_detector
-  PLUGIN "apriltag_ros::SingleImageDetector"
+  PLUGIN "apriltag_ros2::SingleImageDetector"
   EXECUTABLE ${PROJECT_NAME}_single_image_detector_node
 )
 
@@ -110,7 +110,7 @@ ament_auto_add_library(${PROJECT_NAME}_single_image_client SHARED
   src/single_image_client.cpp
 )
 rclcpp_components_register_node(${PROJECT_NAME}_single_image_client
-  PLUGIN "apriltag_ros::SingleImageClient"
+  PLUGIN "apriltag_ros2::SingleImageClient"
   EXECUTABLE ${PROJECT_NAME}_single_image_client_node
 )
 
