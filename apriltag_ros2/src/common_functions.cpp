@@ -75,7 +75,7 @@ namespace apriltag_ros2
         tag_bundle_descriptions_(parseTagBundles(node)),
         remove_duplicates_(node->declare_parameter("remove_duplicates", true)),
         publish_tf_(node->declare_parameter("publish_tf", false)),
-        tf_pub_(std::make_unique<tf2_ros::TransformBroadcaster>(node))
+        tf_pub_(std::make_unique<tf2_ros::StaticTransformBroadcaster>(node))
   {
 
     tf_buffer_ =

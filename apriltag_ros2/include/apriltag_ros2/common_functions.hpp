@@ -69,6 +69,7 @@
 #include "image_transport/image_transport.hpp"
 #include "sensor_msgs/image_encodings.hpp"
 #include "tf2_ros/transform_broadcaster.h"
+#include "tf2_ros/static_transform_broadcaster.h"
 #include "tf2_ros/transform_listener.h"
 #include "tf2_ros/buffer.h"
 
@@ -192,7 +193,7 @@ namespace apriltag_ros2
     bool remove_duplicates_;
     bool run_quietly_;
     bool publish_tf_;
-    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_pub_;
+    std::unique_ptr<tf2_ros::StaticTransformBroadcaster> tf_pub_;
 
     std::shared_ptr<tf2_ros::TransformListener> tf_listener_{nullptr};
     std::unique_ptr<tf2_ros::Buffer> tf_buffer_;
